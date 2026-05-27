@@ -1,23 +1,24 @@
 # match_destinations.py
 # scores all regions against the traveller profile and returns the top 5
 # score is out of 100, split across 4 criteria
-# also calls gemini to generate a short motivation per destination
+
 
 import profile
 import time
 
-from google import genai
+
 import pandas as pd
 import os
 from dotenv import load_dotenv
 from WorldExplorer.config import REGIONS
 from WorldExplorer.api_clients import get_climate_data
-from google import genai
 load_dotenv()
 
-# setup gemini with the key from .env
+# switched to groq - 
+from groq import Groq
+groq_client = Groq(api_key=os.getenv("GROQ_API_KEY"))
 
-gemini = genai.Client(api_key=os.getenv("GEMINI_API_KEY"))
+
 
 
 
@@ -50,12 +51,12 @@ def match_destinations(profile):
     import time
     for r in top5:
         region_data          = REGIONS[r["region"]]
-        r["motivation"]      = ask_gemini(r["region"], r["score"], profile)
+        r["motivation"] = ask_groq(r["region"], r["score"], profile)
         r["avg_cost_night"]  = region_data["avg_cost_night"]
         r["airport"]         = region_data["airport"]
         r["airport_km"]      = region_data["airport_distance_km"]
         r["description"]     = region_data["description"]
-        time.sleep(4)  # wait 4 seconds between gemini calls to avoid rate limit
+        time.sleep(4)  # wait 4 seconds between groq calls to avoid rate limit
 
     df = pd.DataFrame(top5)
 
@@ -188,7 +189,7 @@ def company_score(data, profile):
         return 3,  f"not ideal for {profile['company'].replace('_', ' ')}"
 
 
-def ask_gemini(region, score, profile):
+def ask_groq(region, score, profile):
     interests = ", ".join(profile["interests"])
     months    = ", ".join(profile["travel_months"])
 
@@ -199,21 +200,16 @@ def ask_gemini(region, score, profile):
     Match score: {score}/100. Be enthusiastic but keep it short and natural.
     """
 
-    # try up to 3 times with a wait in between
-    for attempt in range(3):
-        try:
-            response = gemini.models.generate_content(
-                model="gemini-2.0-flash",
-                contents=prompt
-            )
-            return response.text.strip()
-        except Exception as e:
-            if "429" in str(e) and attempt < 2:
-                print(f"  gemini rate limit hit, waiting 60 seconds...")
-                time.sleep(60)
-            else:
-                print(f"  gemini failed for {region}: skipping")
-                return f"{region} is a great match for your travel style!"
+    try:
+        response = groq_client.chat.completions.create(
+            model="llama-3.3-70b-versatile",
+            messages=[{"role": "user", "content": prompt}],
+            max_tokens=150
+        )
+        return response.choices[0].message.content.strip()
+    except Exception as e:
+        print(f"  groq failed for {region}: {e}")
+        return f"{region} is a great match for your travel style!"
 
 
 def show_results(top5):
