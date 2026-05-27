@@ -1,6 +1,6 @@
 # country_dashboard_data.py
-# collects all data and exports it to csv files for the node-red dashboard
-# also does some basic quality checks on the data
+# collects all data and exports to csv and sqlite for the node-red dashboard
+# can be called with a profile to filter exports for a specific traveller type
 
 import os
 import pandas as pd
@@ -10,7 +10,7 @@ from WorldExplorer.config import REGIONS, PROFILES
 from WorldExplorer.scraper import scrape_region
 from WorldExplorer.api_clients import get_attractions, get_country_info
 
-# setup a simple logger so we can track warnings and issues
+# simple logger for quality control warnings
 logging.basicConfig(
     filename="data/dashboard_log.txt",
     level=logging.WARNING,
@@ -20,37 +20,42 @@ logging.basicConfig(
 
 def country_dashboard_data(profile=None):
     """
-    main function - gathers all data and exports to csv files
+    gathers all data and exports to csv files and sqlite db
     if a profile is given, exports are filtered for that traveller type
     """
     print("\ngathering dashboard data...")
     os.makedirs("data", exist_ok=True)
 
-    # get basic country info
     country_info = get_country_info()
     print(f"  country: {country_info.get('name', 'China')}")
 
-    # scrape all regions
     all_regions = scrape_all_regions()
 
-    # build the different datasets
-    attractions_df  = build_attractions_data(profile)
-    budget_df       = build_budget_data(all_regions)
-    mustsee_df      = build_mustsee_data(all_regions)
-    stats_df        = build_stats(all_regions, attractions_df)
+    # filter regions based on profile interests if given
+    if profile:
+        relevant_regions = [
+            name for name, data in REGIONS.items()
+            if any(tag in profile["interests"] for tag in data["tags"])
+        ]
+        print(f"  filtering for: {profile['interests']}")
+        print(f"  relevant regions: {relevant_regions}")
+    else:
+        relevant_regions = list(REGIONS.keys())
 
-    # quality check before saving
+    attractions_df = build_attractions_data(profile)
+    budget_df      = build_budget_data(all_regions, relevant_regions)
+    mustsee_df     = build_mustsee_data(all_regions, relevant_regions)
+    stats_df       = build_stats(all_regions, attractions_df, relevant_regions)
+
     quality_check(attractions_df, "attractions")
     quality_check(budget_df,      "budget")
     quality_check(mustsee_df,     "must-sees")
 
-    # save to csv
     save_csv(attractions_df, "data/dashboard_attractions.csv")
     save_csv(budget_df,      "data/dashboard_budget.csv")
     save_csv(mustsee_df,     "data/dashboard_mustsees.csv")
     save_csv(stats_df,       "data/dashboard_stats.csv")
 
-    # also save to sqlite so node-red can query it
     save_to_db(attractions_df, budget_df, mustsee_df, stats_df)
 
     print("\nall exports done!")
@@ -70,22 +75,17 @@ def country_dashboard_data(profile=None):
 
 
 def scrape_all_regions():
-    # scrapes wikivoyage and numbeo for all regions
-    # returns a list of dicts with region data
     results = []
     for name in REGIONS:
         print(f"  scraping {name}...")
-        data = scrape_region(name)
+        data        = scrape_region(name)
         data["region"] = name
         results.append(data)
     return results
 
 
 def build_attractions_data(profile=None):
-    # fetches attractions from opentripmap for all regions
-    # filters by profile if given
     rows = []
-
     for name, region_data in REGIONS.items():
         lat, lon = region_data["coords"]
         places   = get_attractions(lat, lon)
@@ -98,7 +98,6 @@ def build_attractions_data(profile=None):
             kinds    = p.get("kinds", "")
             category = guess_category(kinds)
 
-            # filter by profile interests if given
             if profile and category not in profile["interests"]:
                 continue
 
@@ -112,25 +111,24 @@ def build_attractions_data(profile=None):
                 "kinds":    kinds,
             })
 
-    df = pd.DataFrame(rows)
-    return df
+    return pd.DataFrame(rows)
 
 
-def build_budget_data(all_regions):
-    # builds a table of accommodation and meal costs per region
+def build_budget_data(all_regions, relevant_regions=None):
     rows = []
-
     for data in all_regions:
         region = data["region"]
-        prices = data.get("prices", {})
 
-        # get avg cost per night from config
+        # skip if not in filtered list
+        if relevant_regions and region not in relevant_regions:
+            continue
+
+        prices    = data.get("prices", {})
         avg_night = REGIONS[region]["avg_cost_night"]
 
-        # get meal prices from numbeo scrape
-        cheap_meal  = ""
-        midrange    = ""
-        fastfood    = ""
+        cheap_meal = ""
+        midrange   = ""
+        fastfood   = ""
 
         for key, val in prices.items():
             if "Inexpensive" in key:
@@ -141,81 +139,77 @@ def build_budget_data(all_regions):
                 fastfood = val
 
         rows.append({
-            "region":           region,
-            "budget_level":     REGIONS[region]["budget"],
-            "avg_cost_night":   avg_night,
-            "cheap_meal":       cheap_meal,
-            "midrange_meal":    midrange,
-            "fastfood_meal":    fastfood,
+            "region":         region,
+            "budget_level":   REGIONS[region]["budget"],
+            "avg_cost_night": avg_night,
+            "cheap_meal":     cheap_meal,
+            "midrange_meal":  midrange,
+            "fastfood_meal":  fastfood,
         })
 
     return pd.DataFrame(rows)
 
 
-def build_mustsee_data(all_regions):
-    # builds the must-sees vs hidden gems table
-    # must-sees = well known highlights from config
-    # hidden gems = less obvious spots from wikivoyage scrape
+def build_mustsee_data(all_regions, relevant_regions=None):
     rows = []
-
     for data in all_regions:
         region = data["region"]
 
-        # highlights from config are the well known must-sees
+        if relevant_regions and region not in relevant_regions:
+            continue
+
         highlights = REGIONS[region].get("highlights", [])
         for h in highlights:
             rows.append({
-                "region":   region,
-                "name":     h,
-                "type":     "must-see",
-                "tags":     ", ".join(REGIONS[region]["tags"]),
+                "region": region,
+                "name":   h,
+                "type":   "must-see",
+                "tags":   ", ".join(REGIONS[region]["tags"]),
             })
 
-        # things to see from wikivoyage are more specific/niche
         for item in data.get("things_to_see", []):
             if item not in highlights:
                 rows.append({
-                    "region":   region,
-                    "name":     item,
-                    "type":     "hidden gem",
-                    "tags":     ", ".join(REGIONS[region]["tags"]),
+                    "region": region,
+                    "name":   item,
+                    "type":   "hidden gem",
+                    "tags":   ", ".join(REGIONS[region]["tags"]),
                 })
 
     return pd.DataFrame(rows)
 
 
-def build_stats(all_regions, attractions_df):
-    # calculates summary statistics per region
+def build_stats(all_regions, attractions_df, relevant_regions=None):
     rows = []
-
     for data in all_regions:
         region = data["region"]
 
-        # count attractions per region from the api data
+        if relevant_regions and region not in relevant_regions:
+            continue
+
         if not attractions_df.empty and "region" in attractions_df.columns:
-            region_attractions = attractions_df[attractions_df["region"] == region]
-            attraction_count   = len(region_attractions)
-            avg_rating         = round(region_attractions["rating"].mean(), 1) if not region_attractions.empty else 0
+            region_attr    = attractions_df[attractions_df["region"] == region]
+            attr_count     = len(region_attr)
+            avg_rating     = round(region_attr["rating"].mean(), 1) if not region_attr.empty else 0
         else:
-            attraction_count = 0
-            avg_rating       = 0
+            attr_count = 0
+            avg_rating = 0
 
         rows.append({
-            "region":            region,
-            "attraction_count":  attraction_count,
-            "avg_rating":        avg_rating,
-            "things_to_see":     len(data.get("things_to_see", [])),
-            "things_to_do":      len(data.get("things_to_do", [])),
-            "avg_cost_night":    REGIONS[region]["avg_cost_night"],
-            "budget_level":      REGIONS[region]["budget"],
-            "profile_tags":      ", ".join(REGIONS[region]["tags"]),
+            "region":           region,
+            "attraction_count": attr_count,
+            "avg_rating":       avg_rating,
+            "things_to_see":    len(data.get("things_to_see", [])),
+            "things_to_do":     len(data.get("things_to_do", [])),
+            "avg_cost_night":   REGIONS[region]["avg_cost_night"],
+            "budget_level":     REGIONS[region]["budget"],
+            "profile_tags":     ", ".join(REGIONS[region]["tags"]),
         })
 
     return pd.DataFrame(rows)
 
 
 def quality_check(df, name):
-    # checks for missing values and logs warnings
     if df is None or df.empty:
         logging.warning(f"{name} dataframe is empty")
         print(f"  warning: {name} data is empty")
@@ -231,7 +225,6 @@ def quality_check(df, name):
 
 
 def save_csv(df, path):
-    # saves a dataframe to csv, skips if empty
     if df is None or df.empty:
         print(f"  skipping {path} - no data")
         return
@@ -240,34 +233,26 @@ def save_csv(df, path):
 
 
 def save_to_db(attractions, budget, mustsees, stats):
-    # saves all dataframes to a sqlite database
-    # node-red can query this directly
     db_path = "data/worldexplorer.db"
-
     try:
         conn = sqlite3.connect(db_path)
-
         if not attractions.empty:
             attractions.to_sql("attractions", conn, if_exists="replace", index=False)
         if not budget.empty:
-            budget.to_sql("budget", conn, if_exists="replace", index=False)
+            budget.to_sql("budget",      conn, if_exists="replace", index=False)
         if not mustsees.empty:
-            mustsees.to_sql("mustsees", conn, if_exists="replace", index=False)
+            mustsees.to_sql("mustsees",  conn, if_exists="replace", index=False)
         if not stats.empty:
-            stats.to_sql("stats", conn, if_exists="replace", index=False)
-
+            stats.to_sql("stats",        conn, if_exists="replace", index=False)
         conn.close()
         print(f"  saved to {db_path}")
-
     except Exception as e:
         print(f"  db save failed: {e}")
         logging.error(f"db save failed: {e}")
 
 
 def guess_category(kinds):
-    # same as in attractions_map.py - maps opentripmap kinds to our categories
     k = kinds.lower()
-
     if any(w in k for w in ["beach", "water", "diving"]):
         return "sun_sea"
     elif any(w in k for w in ["hiking", "climbing", "sport"]):

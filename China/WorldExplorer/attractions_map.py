@@ -10,7 +10,7 @@ from WorldExplorer.config import REGIONS, PROFILES, PROFILE_COLOURS
 from WorldExplorer.api_clients import get_attractions, get_attraction_details
 
 
-def attractions_map(profile=None, region=None):
+def attractions_map(profile=None, region=None, regions=None):
     """
     generates an interactive folium map with attractions
     filtered by profile and/or region if provided
@@ -20,10 +20,12 @@ def attractions_map(profile=None, region=None):
     # decide which regions to show
     if region:
         regions_to_show = {region: REGIONS[region]}
+    elif regions:
+        regions_to_show = {r: REGIONS[r] for r in regions if r in REGIONS}
     else:
         regions_to_show = REGIONS
 
-    # centre map on China
+    # rest of the function stays exactly the same from here
     m = folium.Map(location=(35.8617, 104.1954), zoom_start=5, tiles="CartoDB positron")
 
     # add title

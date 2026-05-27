@@ -65,6 +65,15 @@ def match_destinations(profile):
     df.to_csv("data/top5_destinations.csv", index=False)
     print("results saved to data/top5_destinations.csv")
 
+    profile_df = pd.DataFrame([{
+            "budget":        profile["budget"],
+            "travel_months": ", ".join(profile["travel_months"]),
+            "days":          profile["days"],
+            "interests":     ", ".join(profile["interests"]),
+            "company":       profile["company"],
+            "mobility":      profile["mobility"],
+            }])
+
     show_results(top5)
 
     return df
