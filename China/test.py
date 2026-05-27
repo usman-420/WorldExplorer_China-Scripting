@@ -1,5 +1,3 @@
-from WorldExplorer.traveller_profile import traveller_profile
-from WorldExplorer.seasonal_analysis import seasonal_analysis
+from WorldExplorer.country_dashboard_data import country_dashboard_data
 
-profile = traveller_profile()
-seasonal_analysis("Beijing", profile=profile)
+country_dashboard_data()
