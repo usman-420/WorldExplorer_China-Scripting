@@ -1,5 +1,5 @@
-from WorldExplorer.attractions_map import attractions_map
+from WorldExplorer.traveller_profile import traveller_profile
+from WorldExplorer.seasonal_analysis import seasonal_analysis
 
-
-# test without profile filter first to confirm markers work
-attractions_map()
+profile = traveller_profile()
+seasonal_analysis("Beijing", profile=profile)
