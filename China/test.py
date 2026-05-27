@@ -1,6 +1,5 @@
-from WorldExplorer.traveller_profile import traveller_profile
-from WorldExplorer.match_destinations import match_destinations
+from WorldExplorer.attractions_map import attractions_map
 
-profile = traveller_profile()
-df = match_destinations(profile)
-print(df)
+
+# test without profile filter first to confirm markers work
+attractions_map()
