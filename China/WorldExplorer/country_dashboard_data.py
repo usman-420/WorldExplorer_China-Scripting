@@ -9,6 +9,7 @@ import logging
 from WorldExplorer.config import REGIONS, PROFILES
 from WorldExplorer.scraper import scrape_region
 from WorldExplorer.api_clients import get_attractions, get_country_info
+from WorldExplorer.api_clients import get_attractions, get_country_info, get_climate_data
 
 # simple logger for quality control warnings
 logging.basicConfig(
@@ -188,12 +189,51 @@ def build_stats(all_regions, attractions_df, relevant_regions=None):
             continue
 
         if not attractions_df.empty and "region" in attractions_df.columns:
-            region_attr    = attractions_df[attractions_df["region"] == region]
-            attr_count     = len(region_attr)
-            avg_rating     = round(region_attr["rating"].mean(), 1) if not region_attr.empty else 0
+            region_attr  = attractions_df[attractions_df["region"] == region]
+            attr_count   = len(region_attr)
+            avg_rating   = round(region_attr["rating"].mean(), 1) if not region_attr.empty else 0
         else:
             attr_count = 0
             avg_rating = 0
+
+        # rough popularity estimate per season based on climate
+        # higher travelability = more tourists = more popular
+        coords = REGIONS[region]["coords"]
+        climate = get_climate_data(coords[0], coords[1])
+
+        spring_pop = summer_pop = autumn_pop = winter_pop = "medium"
+        if climate and "daily" in climate:
+            temps = climate["daily"].get("temperature_2m_mean", [])
+            times = climate["daily"].get("time", [])
+
+            season_temps = {"spring": [], "summer": [], "autumn": [], "winter": []}
+            for i, date in enumerate(times):
+                month = int(date[5:7])
+                if i < len(temps) and temps[i] is not None:
+                    if month in [3, 4, 5]:
+                        season_temps["spring"].append(temps[i])
+                    elif month in [6, 7, 8]:
+                        season_temps["summer"].append(temps[i])
+                    elif month in [9, 10, 11]:
+                        season_temps["autumn"].append(temps[i])
+                    else:
+                        season_temps["winter"].append(temps[i])
+
+            def pop_label(temps_list):
+                if not temps_list:
+                    return "medium"
+                avg = sum(temps_list) / len(temps_list)
+                if 15 <= avg <= 25:
+                    return "high"
+                elif 8 <= avg <= 30:
+                    return "medium"
+                else:
+                    return "low"
+
+            spring_pop = pop_label(season_temps["spring"])
+            summer_pop = pop_label(season_temps["summer"])
+            autumn_pop = pop_label(season_temps["autumn"])
+            winter_pop = pop_label(season_temps["winter"])
 
         rows.append({
             "region":           region,
@@ -204,6 +244,10 @@ def build_stats(all_regions, attractions_df, relevant_regions=None):
             "avg_cost_night":   REGIONS[region]["avg_cost_night"],
             "budget_level":     REGIONS[region]["budget"],
             "profile_tags":     ", ".join(REGIONS[region]["tags"]),
+            "popularity_spring": spring_pop,
+            "popularity_summer": summer_pop,
+            "popularity_autumn": autumn_pop,
+            "popularity_winter": winter_pop,
         })
 
     return pd.DataFrame(rows)

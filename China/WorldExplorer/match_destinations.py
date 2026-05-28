@@ -19,7 +19,20 @@ from groq import Groq
 groq_client = Groq(api_key=os.getenv("GROQ_API_KEY"))
 
 
+def surprise_button(scores, top5):
+    # picks a hidden gem from outside the top 5
+    
+    top5_names = [r["region"] for r in top5]
+    rest = [r for r in scores if r["region"] not in top5_names]
 
+    if not rest:
+        return None
+
+    # sort the remaining ones and grab the best
+    rest.sort(key=lambda x: x["score"], reverse=True)
+    hidden = rest[0]
+
+    return hidden
 
 
 
@@ -88,7 +101,20 @@ def match_destinations(profile):
     profile_df.to_csv("data/current_profile.csv", index=False)
 
     show_results(top5)
+    # surprise button - shows a hidden gem outside the top 5
+    hidden = surprise_button(scores, top5)
+    if hidden:
+        hidden["motivation"]     = ask_groq(hidden["region"], hidden["score"], profile)
+        hidden["avg_cost_night"] = REGIONS[hidden["region"]]["avg_cost_night"]
+        hidden["airport"]        = REGIONS[hidden["region"]]["airport"]
+        hidden["airport_km"]     = REGIONS[hidden["region"]]["airport_distance_km"]
 
+        print("\n--- surprise hidden gem ---")
+        print(f"  {hidden['region']} scored {hidden['score']}/100 but just missed your top 5")
+        print(f"  {hidden['motivation']}")
+        print(f"  airport: {hidden['airport']} ({hidden['airport_km']} km)")
+        print(f"  avg cost per night: {hidden['avg_cost_night']}")
+        
     return df
 
 
