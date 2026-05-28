@@ -1,7 +1,6 @@
 region,budget_level,avg_cost_night,cheap_meal,midrange_meal,fastfood_meal
+Beijing,mid_range,80,¥30.00,¥180.00,¥35.00
 Yunnan,backpacker,30,,,
-Sichuan,mid_range,50,,,
-Guilin,backpacker,35,,,
+Xian,mid_range,55,,,
 Tibet,mid_range,60,,,
-Zhangjiajie,mid_range,45,,,
 Hangzhou,mid_range,65,¥25.00,¥200.00,¥35.00

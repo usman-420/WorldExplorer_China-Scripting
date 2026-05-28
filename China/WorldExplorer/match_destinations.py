@@ -50,21 +50,33 @@ def match_destinations(profile):
     # in match_destinations function, replace the motivation loop with this:
     import time
     for r in top5:
-        region_data          = REGIONS[r["region"]]
-        r["motivation"] = ask_groq(r["region"], r["score"], profile)
-        r["avg_cost_night"]  = region_data["avg_cost_night"]
-        r["airport"]         = region_data["airport"]
-        r["airport_km"]      = region_data["airport_distance_km"]
-        r["description"]     = region_data["description"]
-        time.sleep(4)  # wait 4 seconds between groq calls to avoid rate limit
+            region_data          = REGIONS[r["region"]]
+            r["motivation"] = ask_groq(r["region"], r["score"], profile)
+            r["avg_cost_night"]  = region_data["avg_cost_night"]
+            r["airport"]         = region_data["airport"]
+            r["airport_km"]      = region_data["airport_distance_km"]
+            r["description"]     = region_data["description"]
+            time.sleep(4)
 
     df = pd.DataFrame(top5)
 
-    # save to csv
+        # save full version for python use
     os.makedirs("data", exist_ok=True)
-    df.to_csv("data/top5_destinations.csv", index=False)
+    
+
+        # save clean version for node-red - no breakdown column, no commas inside fields
+    clean_df = pd.DataFrame([{
+            "region":         r["region"],
+            "score":          r["score"],
+            "avg_cost_night": r["avg_cost_night"],
+            "airport":        r["airport"],
+            "airport_km":     r["airport_km"],
+            "motivation":     r["motivation"][:100] if r["motivation"] else "",
+        } for r in top5])
+    clean_df.to_csv("data/top5_destinations.csv", index=False)
     print("results saved to data/top5_destinations.csv")
 
+        # save profile
     profile_df = pd.DataFrame([{
             "budget":        profile["budget"],
             "travel_months": ", ".join(profile["travel_months"]),
@@ -72,7 +84,8 @@ def match_destinations(profile):
             "interests":     ", ".join(profile["interests"]),
             "company":       profile["company"],
             "mobility":      profile["mobility"],
-            }])
+        }])
+    profile_df.to_csv("data/current_profile.csv", index=False)
 
     show_results(top5)
 

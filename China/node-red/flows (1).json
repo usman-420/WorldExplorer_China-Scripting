@@ -1,0 +1,994 @@
+[
+    {
+        "id": "868850c89ef71e74",
+        "type": "tab",
+        "label": "Flow 9",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "771c0f710fed37cb",
+        "type": "ui_base",
+        "theme": {
+            "name": "theme-light",
+            "lightTheme": {
+                "default": "#0094CE",
+                "baseColor": "#0094CE",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
+                "edited": true,
+                "reset": false
+            },
+            "darkTheme": {
+                "default": "#097479",
+                "baseColor": "#097479",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
+                "edited": false
+            },
+            "customTheme": {
+                "name": "Untitled Theme 1",
+                "default": "#4B7930",
+                "baseColor": "#4B7930",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif"
+            },
+            "themeState": {
+                "base-color": {
+                    "default": "#0094CE",
+                    "value": "#0094CE",
+                    "edited": false
+                },
+                "page-titlebar-backgroundColor": {
+                    "value": "#0094CE",
+                    "edited": false
+                },
+                "page-backgroundColor": {
+                    "value": "#fafafa",
+                    "edited": false
+                },
+                "page-sidebar-backgroundColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "group-textColor": {
+                    "value": "#1bbfff",
+                    "edited": false
+                },
+                "group-borderColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "group-backgroundColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "widget-textColor": {
+                    "value": "#111111",
+                    "edited": false
+                },
+                "widget-backgroundColor": {
+                    "value": "#0094ce",
+                    "edited": false
+                },
+                "widget-borderColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "base-font": {
+                    "value": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif"
+                }
+            },
+            "angularTheme": {
+                "primary": "indigo",
+                "accents": "blue",
+                "warn": "red",
+                "background": "grey",
+                "palette": "light"
+            }
+        },
+        "site": {
+            "name": "Node-RED Dashboard",
+            "hideToolbar": "false",
+            "allowSwipe": "false",
+            "lockMenu": "false",
+            "allowTempTheme": "true",
+            "dateFormat": "DD/MM/YYYY",
+            "sizes": {
+                "sx": 48,
+                "sy": 48,
+                "gx": 6,
+                "gy": 6,
+                "cx": 6,
+                "cy": 6,
+                "px": 0,
+                "py": 0
+            }
+        }
+    },
+    {
+        "id": "668063529a2cc1cb",
+        "type": "ui_tab",
+        "name": "China Overview",
+        "icon": "dashboard",
+        "order": 3,
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "c2aca75dc0bca0fd",
+        "type": "ui_tab",
+        "name": "Seasonal",
+        "icon": "dashboard",
+        "order": 4,
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "b906591265540456",
+        "type": "ui_group",
+        "name": "Attractions by Category",
+        "tab": "668063529a2cc1cb",
+        "order": 1,
+        "disp": true,
+        "width": 8,
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "d3b0fc45f79e3a7a",
+        "type": "ui_group",
+        "name": "Must-Sees & Hiddden Gems",
+        "tab": "668063529a2cc1cb",
+        "order": 2,
+        "disp": true,
+        "width": 8,
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "e7c0c1492ea95fa9",
+        "type": "ui_group",
+        "name": "Budget Overview",
+        "tab": "668063529a2cc1cb",
+        "order": 3,
+        "disp": true,
+        "width": 8,
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "f5cadf5d0537ab33",
+        "type": "ui_group",
+        "name": "Climate Graph",
+        "tab": "c2aca75dc0bca0fd",
+        "order": 1,
+        "disp": true,
+        "width": 8,
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "586e9b3ed0dcc797",
+        "type": "ui-base",
+        "name": "My Dashboard",
+        "path": "/dashboard",
+        "appIcon": "",
+        "includeClientData": true,
+        "acceptsClientConfig": [
+            "ui-notification",
+            "ui-control"
+        ],
+        "showPathInSidebar": false,
+        "headerContent": "page",
+        "navigationStyle": "default",
+        "titleBarStyle": "default",
+        "showReconnectNotification": true,
+        "notificationDisplayTime": 1,
+        "showDisconnectNotification": true,
+        "allowInstall": false
+    },
+    {
+        "id": "529043bee0f526fb",
+        "type": "ui-theme",
+        "name": "Default Theme",
+        "colors": {
+            "surface": "#ffffff",
+            "primary": "#0094CE",
+            "bgPage": "#eeeeee",
+            "groupBg": "#ffffff",
+            "groupOutline": "#cccccc"
+        },
+        "sizes": {
+            "density": "default",
+            "pagePadding": "12px",
+            "groupGap": "12px",
+            "groupBorderRadius": "4px",
+            "widgetGap": "12px"
+        }
+    },
+    {
+        "id": "abd2bfb2c1e27301",
+        "type": "ui-page",
+        "name": "Page 1",
+        "ui": "586e9b3ed0dcc797",
+        "path": "/page1",
+        "icon": "home",
+        "layout": "grid",
+        "theme": "529043bee0f526fb",
+        "breakpoints": [
+            {
+                "name": "Default",
+                "px": 0,
+                "cols": 3
+            },
+            {
+                "name": "Tablet",
+                "px": 576,
+                "cols": 6
+            },
+            {
+                "name": "Small Desktop",
+                "px": 768,
+                "cols": 9
+            },
+            {
+                "name": "Desktop",
+                "px": 1024,
+                "cols": 12
+            }
+        ],
+        "order": 1,
+        "className": "",
+        "visible": true,
+        "disabled": false
+    },
+    {
+        "id": "0f8523c2a46d4d96",
+        "type": "ui-group",
+        "name": "Group 1",
+        "page": "abd2bfb2c1e27301",
+        "width": 6,
+        "height": 1,
+        "order": 1,
+        "showTitle": true,
+        "className": "",
+        "visible": true,
+        "disabled": false,
+        "groupType": "default"
+    },
+    {
+        "id": "685da82a662e137c",
+        "type": "ui_group",
+        "name": "Welcome",
+        "tab": "73fe32760c65b1f2",
+        "order": 1,
+        "disp": true,
+        "width": 12,
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "0c5ce5f5a8e21c34",
+        "type": "ui_group",
+        "name": "Your Profile",
+        "tab": "65afb26e1e830466",
+        "order": 1,
+        "disp": true,
+        "width": 8,
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "10c04f1d4b4f9927",
+        "type": "ui_group",
+        "name": "Match Scores",
+        "tab": "65afb26e1e830466",
+        "order": 3,
+        "disp": true,
+        "width": 8,
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "3954c505f17f374f",
+        "type": "ui_group",
+        "name": "Top 5 Destinations",
+        "tab": "65afb26e1e830466",
+        "order": 2,
+        "disp": true,
+        "width": 30,
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "73fe32760c65b1f2",
+        "type": "ui_tab",
+        "name": "Home",
+        "icon": "dashboard",
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "65afb26e1e830466",
+        "type": "ui_tab",
+        "name": "My Trip",
+        "icon": "dashboard",
+        "order": 2,
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "1705d94d748c14f7",
+        "type": "ui_spacer",
+        "z": "868850c89ef71e74",
+        "name": "spacer",
+        "group": "3954c505f17f374f",
+        "order": 1,
+        "width": 30,
+        "height": 1
+    },
+    {
+        "id": "ed96cdcd91ae13da",
+        "type": "ui_spacer",
+        "z": "868850c89ef71e74",
+        "name": "spacer",
+        "group": "3954c505f17f374f",
+        "order": 2,
+        "width": 30,
+        "height": 1
+    },
+    {
+        "id": "f4fad05606a135c4",
+        "type": "ui_spacer",
+        "z": "868850c89ef71e74",
+        "name": "spacer",
+        "group": "3954c505f17f374f",
+        "order": 3,
+        "width": 30,
+        "height": 1
+    },
+    {
+        "id": "cc71ed4c6e172acb",
+        "type": "ui_spacer",
+        "z": "868850c89ef71e74",
+        "name": "spacer",
+        "group": "3954c505f17f374f",
+        "order": 4,
+        "width": 30,
+        "height": 1
+    },
+    {
+        "id": "968b36e5e6362b30",
+        "type": "ui_spacer",
+        "z": "868850c89ef71e74",
+        "name": "spacer",
+        "group": "3954c505f17f374f",
+        "order": 5,
+        "width": 30,
+        "height": 1
+    },
+    {
+        "id": "2d82f015eef3800e",
+        "type": "ui_text",
+        "z": "868850c89ef71e74",
+        "group": "685da82a662e137c",
+        "order": 1,
+        "width": 12,
+        "height": 0,
+        "name": "",
+        "label": "",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "className": "",
+        "style": false,
+        "font": "",
+        "fontSize": 24,
+        "color": "#1a73e8",
+        "x": 470,
+        "y": 80,
+        "wires": []
+    },
+    {
+        "id": "e6f10e54f08f9a73",
+        "type": "inject",
+        "z": "868850c89ef71e74",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": "0.5",
+        "topic": "",
+        "payload": "WorldExplorer — China 🇨🇳",
+        "payloadType": "str",
+        "x": 180,
+        "y": 80,
+        "wires": [
+            [
+                "2d82f015eef3800e"
+            ]
+        ]
+    },
+    {
+        "id": "7bf6752e68a63e3a",
+        "type": "ui_text",
+        "z": "868850c89ef71e74",
+        "group": "685da82a662e137c",
+        "order": 2,
+        "width": 12,
+        "height": 0,
+        "name": "",
+        "label": "",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "className": "",
+        "style": false,
+        "font": "",
+        "fontSize": 16,
+        "color": "#000000",
+        "x": 410,
+        "y": 260,
+        "wires": []
+    },
+    {
+        "id": "5a7491e64f29e517",
+        "type": "inject",
+        "z": "868850c89ef71e74",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": "0.5",
+        "topic": "",
+        "payload": "Your smart travel guide for China. Fill in your profile in the My Trip tab to get personalised recommendations.",
+        "payloadType": "str",
+        "x": 170,
+        "y": 260,
+        "wires": [
+            [
+                "7bf6752e68a63e3a"
+            ]
+        ]
+    },
+    {
+        "id": "401f8c7c74ec6d9e",
+        "type": "ui_dropdown",
+        "z": "868850c89ef71e74",
+        "name": "",
+        "label": "Budget",
+        "tooltip": "",
+        "place": "Select option",
+        "group": "0c5ce5f5a8e21c34",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "multiple": false,
+        "options": [
+            {
+                "label": "Backpacker",
+                "value": "backpacker",
+                "type": "str"
+            },
+            {
+                "label": "Mid-range",
+                "value": "mid_range",
+                "type": "str"
+            },
+            {
+                "label": "Luxury",
+                "value": "luxury",
+                "type": "str"
+            }
+        ],
+        "payload": "",
+        "topic": "budget",
+        "topicType": "str",
+        "className": "",
+        "x": 1100,
+        "y": 380,
+        "wires": [
+            [
+                "373226bcc5059253"
+            ]
+        ]
+    },
+    {
+        "id": "e9c37d0b9096863a",
+        "type": "ui_dropdown",
+        "z": "868850c89ef71e74",
+        "name": "",
+        "label": "Travel Month",
+        "tooltip": "",
+        "place": "Select option",
+        "group": "0c5ce5f5a8e21c34",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "multiple": false,
+        "options": [
+            {
+                "label": "January",
+                "value": "january",
+                "type": "str"
+            },
+            {
+                "label": "February",
+                "value": "february",
+                "type": "str"
+            },
+            {
+                "label": "March",
+                "value": "march",
+                "type": "str"
+            },
+            {
+                "label": "April",
+                "value": "april",
+                "type": "str"
+            },
+            {
+                "label": "May",
+                "value": "may",
+                "type": "str"
+            },
+            {
+                "label": "June",
+                "value": "june",
+                "type": "str"
+            },
+            {
+                "label": "July",
+                "value": "july",
+                "type": "str"
+            },
+            {
+                "label": "August",
+                "value": "august",
+                "type": "str"
+            },
+            {
+                "label": "September",
+                "value": "september",
+                "type": "str"
+            },
+            {
+                "label": "October",
+                "value": "october",
+                "type": "str"
+            },
+            {
+                "label": "November",
+                "value": "november",
+                "type": "str"
+            },
+            {
+                "label": "December",
+                "value": "december",
+                "type": "str"
+            }
+        ],
+        "payload": "",
+        "topic": "travel_month",
+        "topicType": "str",
+        "className": "",
+        "x": 870,
+        "y": 360,
+        "wires": [
+            [
+                "373226bcc5059253"
+            ]
+        ]
+    },
+    {
+        "id": "f0a3c86fdfcf1924",
+        "type": "ui_dropdown",
+        "z": "868850c89ef71e74",
+        "name": "",
+        "label": "Interests",
+        "tooltip": "",
+        "place": "Select option",
+        "group": "0c5ce5f5a8e21c34",
+        "order": 3,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "multiple": false,
+        "options": [
+            {
+                "label": "Sun & Sea",
+                "value": "sun_sea",
+                "type": "str"
+            },
+            {
+                "label": "Adventure",
+                "value": "adventure",
+                "type": "str"
+            },
+            {
+                "label": "Culture & History",
+                "value": "culture_history",
+                "type": "str"
+            },
+            {
+                "label": "Nature & Wildlife",
+                "value": "nature_wildlife",
+                "type": "str"
+            },
+            {
+                "label": "Citytrip",
+                "value": "citytrip",
+                "type": "str"
+            },
+            {
+                "label": "Gastronomy",
+                "value": "gastronomy",
+                "type": "str"
+            },
+            {
+                "label": "Wellness & Spa",
+                "value": "wellness_spa",
+                "type": "str"
+            },
+            {
+                "label": "Backpacker",
+                "value": "backpacker",
+                "type": "str"
+            }
+        ],
+        "payload": "",
+        "topic": "interests",
+        "topicType": "str",
+        "className": "",
+        "x": 640,
+        "y": 340,
+        "wires": [
+            [
+                "373226bcc5059253"
+            ]
+        ]
+    },
+    {
+        "id": "travelling_with_node",
+        "type": "ui_dropdown",
+        "z": "868850c89ef71e74",
+        "name": "",
+        "label": "Travelling With",
+        "tooltip": "",
+        "place": "Select option",
+        "group": "0c5ce5f5a8e21c34",
+        "order": 4,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "multiple": false,
+        "options": [
+            {
+                "label": " Solo",
+                "value": "solo",
+                "type": "str"
+            },
+            {
+                "label": "Couple",
+                "value": "couple",
+                "type": "str"
+            },
+            {
+                "label": "Family with kids",
+                "value": "family_kids",
+                "type": "str"
+            },
+            {
+                "label": "Friend group",
+                "value": "friend_group",
+                "type": "str"
+            }
+        ],
+        "payload": "",
+        "topic": "company",
+        "topicType": "str",
+        "className": "",
+        "x": 410,
+        "y": 320,
+        "wires": [
+            [
+                "373226bcc5059253"
+            ]
+        ]
+    },
+    {
+        "id": "find_btn_node",
+        "type": "ui_button",
+        "z": "868850c89ef71e74",
+        "name": "",
+        "group": "0c5ce5f5a8e21c34",
+        "order": 5,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "label": "FIND MY DESTINATIONS ",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "#1a73e8",
+        "className": "",
+        "icon": "",
+        "payload": "submit",
+        "payloadType": "str",
+        "topic": "submit",
+        "topicType": "str",
+        "x": 170,
+        "y": 300,
+        "wires": [
+            [
+                "373226bcc5059253"
+            ]
+        ]
+    },
+    {
+        "id": "373226bcc5059253",
+        "type": "function",
+        "z": "868850c89ef71e74",
+        "name": "build profile",
+        "func": "if (msg.topic === 'budget') {\n    flow.set('budget', msg.payload);\n}\nif (msg.topic === 'travel_month') {\n    flow.set('travel_month', msg.payload);\n}\nif (msg.topic === 'interests') {\n    flow.set('interests', msg.payload);\n}\nif (msg.topic === 'company') {\n    flow.set('company', msg.payload);\n    node.warn('company set to: ' + msg.payload);\n}\n\nif (msg.topic === 'submit') {\n    let profile = {\n        budget:        flow.get('budget')        || 'mid_range',\n        travel_months: [flow.get('travel_month') || 'june'],\n        days:          14,\n        interests:     [flow.get('interests')    || 'culture_history'],\n        company:       flow.get('company')       || 'solo',\n        mobility:      'public_transport'\n    };\n    node.warn('profile built: ' + JSON.stringify(profile));\n    msg.payload = JSON.stringify(profile, null, 2);\n    return msg;\n}\n\nreturn null;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 420,
+        "y": 720,
+        "wires": [
+            [
+                "write_file_node",
+                "348914f92edae3bb"
+            ]
+        ]
+    },
+    {
+        "id": "write_file_node",
+        "type": "file",
+        "z": "868850c89ef71e74",
+        "name": "",
+        "filename": "D:\\Scripting_Project\\WorldExplorer_China-Scripting\\China\\data\\node_red_profile.json",
+        "filenameType": "str",
+        "appendNewline": false,
+        "createDir": true,
+        "overwriteFile": "true",
+        "encoding": "utf8",
+        "x": 720,
+        "y": 880,
+        "wires": [
+            [
+                "exec_node"
+            ]
+        ]
+    },
+    {
+        "id": "exec_node",
+        "type": "exec",
+        "z": "868850c89ef71e74",
+        "command": "python D:\\Scripting_Project\\WorldExplorer_China-Scripting\\China\\run_match.py",
+        "addpay": "",
+        "append": "",
+        "useSpawn": "false",
+        "timer": "",
+        "winHide": false,
+        "oldrc": false,
+        "name": "python",
+        "x": 720,
+        "y": 1060,
+        "wires": [
+            [
+                "642e3323d1773b61"
+            ],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "642e3323d1773b61",
+        "type": "file in",
+        "z": "868850c89ef71e74",
+        "name": "",
+        "filename": "D:\\Scripting_Project\\WorldExplorer_China-Scripting\\China\\data\\top5_destinations.csv",
+        "filenameType": "str",
+        "format": "utf8",
+        "chunk": false,
+        "sendError": false,
+        "encoding": "none",
+        "allProps": false,
+        "x": 820,
+        "y": 1280,
+        "wires": [
+            [
+                "522b9829d6580dd9"
+            ]
+        ]
+    },
+    {
+        "id": "522b9829d6580dd9",
+        "type": "function",
+        "z": "868850c89ef71e74",
+        "name": "parse csv",
+        "func": "function parseCSVLine(line) {\n    let result = [];\n    let current = '';\n    let inQuotes = false;\n    for (let i = 0; i < line.length; i++) {\n        if (line[i] === '\"') {\n            inQuotes = !inQuotes;\n        } else if (line[i] === ',' && !inQuotes) {\n            result.push(current.trim());\n            current = '';\n        } else {\n            current += line[i];\n        }\n    }\n    result.push(current.trim());\n    return result;\n}\n\nlet lines = msg.payload.trim().split('\\n');\nlet headers = parseCSVLine(lines[0]);\nlet rows = [];\nfor (let i = 1; i < lines.length; i++) {\n    if (lines[i].trim() === '') continue;\n    let values = parseCSVLine(lines[i]);\n    let row = {};\n    headers.forEach((h, idx) => {\n        row[h.trim()] = values[idx] ? values[idx].trim() : '';\n    });\n    rows.push(row);\n}\nmsg.payload = rows;\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 780,
+        "y": 1460,
+        "wires": [
+            [
+                "6e72575df35b6008",
+                "be9f54de9694fd63"
+            ]
+        ]
+    },
+    {
+        "id": "6e72575df35b6008",
+        "type": "function",
+        "z": "868850c89ef71e74",
+        "name": "chart data",
+        "func": "let rows = msg.payload;\nlet labels = rows.map(r => r.region);\nlet scores = rows.map(r => parseFloat(r.score));\nmsg.payload = [{\n    series: ['Match Score'],\n    data:   [scores],\n    labels: labels\n}];\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1200,
+        "y": 1460,
+        "wires": [
+            [
+                "e67110e1e88f3625"
+            ]
+        ]
+    },
+    {
+        "id": "e67110e1e88f3625",
+        "type": "ui_chart",
+        "z": "868850c89ef71e74",
+        "name": "",
+        "group": "10c04f1d4b4f9927",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "label": "Match scores - Top 5",
+        "chartType": "bar",
+        "legend": "false",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "0",
+        "ymax": "100",
+        "removeOlder": 1,
+        "removeOlderPoints": "",
+        "removeOlderUnit": "3600",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 1240,
+        "y": 1600,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "be9f54de9694fd63",
+        "type": "function",
+        "z": "868850c89ef71e74",
+        "name": "build html",
+        "func": "let rows = msg.payload;\n\nif (!rows || rows.length === 0) {\n    msg.payload = '<p style=\"padding:10px; color:#999;\">No data found. Click Find My Destinations.</p>';\n    return msg;\n}\n\nlet html = '<div style=\"font-family:Arial; padding:10px; overflow-x:auto;\"><table style=\"width:100%; border-collapse:collapse; min-width:400px;\"><thead><tr style=\"background:#1a73e8; color:white;\"><th style=\"padding:10px; text-align:left;\">#</th><th style=\"padding:10px; text-align:left;\">Region</th><th style=\"padding:10px; text-align:left;\">Score</th><th style=\"padding:10px; text-align:left;\">Cost/Night</th><th style=\"padding:10px; text-align:left;\">Airport</th><th style=\"padding:10px; text-align:left;\">Why visit?</th></tr></thead><tbody>';\n\nrows.forEach((row, i) => {\n    let bg = i % 2 === 0 ? '#f9f9f9' : 'white';\n    let score = parseFloat(row.score) || 0;\n    let scoreColor = score >= 80 ? '#27ae60' : score >= 60 ? '#f39c12' : '#e74c3c';\n    html += '<tr style=\"background:' + bg + ';\">';\n    html += '<td style=\"padding:10px;\">' + (i+1) + '</td>';\n    html += '<td style=\"padding:10px; font-weight:bold;\">' + (row.region || '') + '</td>';\n    html += '<td style=\"padding:10px; font-weight:bold; color:' + scoreColor + ';\">' + (row.score || '') + '/100</td>';\n    html += '<td style=\"padding:10px;\">\\u20ac' + (row.avg_cost_night || '') + '</td>';\n    html += '<td style=\"padding:10px;\">' + (row.airport || '') + ' (' + (row.airport_km || '') + 'km)</td>';\n    html += '<td style=\"padding:10px; color:#555; font-size:12px; max-width:200px;\">' + (row.motivation || '') + '</td>';\n    html += '</tr>';\n});\n\nhtml += '</tbody></table></div>';\n\nmsg.payload = html;\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 760,
+        "y": 1560,
+        "wires": [
+            [
+                "c12db1cd7c4b1851"
+            ]
+        ]
+    },
+    {
+        "id": "c12db1cd7c4b1851",
+        "type": "ui_template",
+        "z": "868850c89ef71e74",
+        "group": "3954c505f17f374f",
+        "name": "top 5 table",
+        "order": 6,
+        "width": 0,
+        "height": 0,
+        "format": "<div ng-bind-html=\"msg.payload\"></div>",
+        "storeOutMessages": true,
+        "fwdInMessages": true,
+        "resendOnRefresh": true,
+        "templateScope": "local",
+        "className": "",
+        "x": 740,
+        "y": 1660,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "698ef9fd499caed5",
+        "type": "debug",
+        "z": "868850c89ef71e74",
+        "name": "debug 1",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 220,
+        "y": 840,
+        "wires": []
+    },
+    {
+        "id": "348914f92edae3bb",
+        "type": "debug",
+        "z": "868850c89ef71e74",
+        "name": "debug 2",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1180,
+        "y": 720,
+        "wires": []
+    },
+    {
+        "id": "98defe33f07f23f2",
+        "type": "global-config",
+        "env": [],
+        "modules": {
+            "node-red-dashboard": "3.6.6",
+            "@flowfuse/node-red-dashboard": "1.30.2"
+        }
+    }
+]

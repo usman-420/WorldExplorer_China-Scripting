@@ -103,14 +103,14 @@ REGIONS = {
 # The 8 traveller profiles from the assignment
 # key = used in code, label = shown to the user
 PROFILES = {
-    "sun_sea":         "🏖  Sun & Sea",
-    "adventure":       "🧗 Adventure",
-    "culture_history": "🏛  Culture & History",
-    "nature_wildlife": "🌿 Nature & Wildlife",
-    "citytrip":        "🏙  Citytrip",
-    "gastronomy":      "🍽  Gastronomy",
-    "wellness_spa":    "🧘 Wellness & Spa",
-    "backpacker":      "🎒 Backpacker/Budget",
+    "sun_sea":         "Sun & Sea",
+    "adventure":       "Adventure",
+    "culture_history": "Culture & History",
+    "nature_wildlife": "Nature & Wildlife",
+    "citytrip":        "Citytrip",
+    "gastronomy":      "Gastronomy",
+    "wellness_spa":    "Wellness & Spa",
+    "backpacker":      "Backpacker/Budget",
 }
 
 # Colours for the folium map markers — one per profile
@@ -127,24 +127,24 @@ PROFILE_COLOURS = {
 
 # Budget options
 BUDGETS = {
-    "backpacker": "🎒 Backpacker  (under €30/night)",
-    "mid_range":  "💼 Mid-range   (€30 – €100/night)",
-    "luxury":     "💎 Luxury      (over €100/night)",
+    "backpacker": "Backpacker  (under €30/night)",
+    "mid_range":  "Mid-range   (€30 – €100/night)",
+    "luxury":     "Luxury      (over €100/night)",
 }
 
 # Travel company options
 COMPANY = {
-    "solo":         "🧍 Solo",
-    "couple":       "👫 Couple",
-    "family_kids":  "👨‍👩‍👧 Family with kids",
-    "friend_group": "👯 Friend group",
+    "solo":         "Solo",
+    "couple":       "Couple",
+    "family_kids":  "Family with kids",
+    "friend_group": "Friend group",
 }
 
 # How they want to get around
 MOBILITY = {
-    "public_transport": "🚇 Public transport",
-    "rent_car":         "🚗 Rent a car",
-    "cycling":          "🚲 Cycling",
+    "public_transport": "Public transport",
+    "rent_car":         "Rent a car",
+    "cycling":          "Cycling",
 }
 
 # Month names — used for travel period selection
