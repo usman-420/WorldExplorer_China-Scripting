@@ -1,5 +1,6 @@
 region,budget_level,avg_cost_night,cheap_meal,midrange_meal,fastfood_meal
-Beijing,mid_range,80,¥30.00,¥180.00,¥35.00
+Beijing,mid_range,80,¥30.00,¥200.00,¥35.00
+Shanghai,luxury,120,¥30.00,¥200.00,¥35.00
 Yunnan,backpacker,30,,,
 Xian,mid_range,55,,,
 Tibet,mid_range,60,,,

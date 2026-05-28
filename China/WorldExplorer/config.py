@@ -1,6 +1,6 @@
 # config.py
 # All the China-specific settings for WorldExplorer
-# Other files import from here so nothing is hardcoded
+
 
 COUNTRY = "China"
 CURRENCY = "Yuan (CNY)"

@@ -1,6 +1,6 @@
 [
     {
-        "id": "868850c89ef71e74",
+        "id": "ccf126f79d5fc349",
         "type": "tab",
         "label": "Flow 9",
         "disabled": false,
@@ -162,7 +162,7 @@
         "tab": "c2aca75dc0bca0fd",
         "order": 1,
         "disp": true,
-        "width": 8,
+        "width": 50,
         "collapse": false,
         "className": ""
     },
@@ -242,20 +242,6 @@
         "disabled": false
     },
     {
-        "id": "0f8523c2a46d4d96",
-        "type": "ui-group",
-        "name": "Group 1",
-        "page": "abd2bfb2c1e27301",
-        "width": 6,
-        "height": 1,
-        "order": 1,
-        "showTitle": true,
-        "className": "",
-        "visible": true,
-        "disabled": false,
-        "groupType": "default"
-    },
-    {
         "id": "685da82a662e137c",
         "type": "ui_group",
         "name": "Welcome",
@@ -304,6 +290,7 @@
         "type": "ui_tab",
         "name": "Home",
         "icon": "dashboard",
+        "order": 1,
         "disabled": false,
         "hidden": false
     },
@@ -317,9 +304,9 @@
         "hidden": false
     },
     {
-        "id": "1705d94d748c14f7",
+        "id": "1a3cef01ada1fb8b",
         "type": "ui_spacer",
-        "z": "868850c89ef71e74",
+        "z": "ccf126f79d5fc349",
         "name": "spacer",
         "group": "3954c505f17f374f",
         "order": 1,
@@ -327,9 +314,9 @@
         "height": 1
     },
     {
-        "id": "ed96cdcd91ae13da",
+        "id": "fa32a7aedbb249e9",
         "type": "ui_spacer",
-        "z": "868850c89ef71e74",
+        "z": "ccf126f79d5fc349",
         "name": "spacer",
         "group": "3954c505f17f374f",
         "order": 2,
@@ -337,9 +324,9 @@
         "height": 1
     },
     {
-        "id": "f4fad05606a135c4",
+        "id": "66c672086b270dbe",
         "type": "ui_spacer",
-        "z": "868850c89ef71e74",
+        "z": "ccf126f79d5fc349",
         "name": "spacer",
         "group": "3954c505f17f374f",
         "order": 3,
@@ -347,9 +334,9 @@
         "height": 1
     },
     {
-        "id": "cc71ed4c6e172acb",
+        "id": "920663cbd3b99078",
         "type": "ui_spacer",
-        "z": "868850c89ef71e74",
+        "z": "ccf126f79d5fc349",
         "name": "spacer",
         "group": "3954c505f17f374f",
         "order": 4,
@@ -357,9 +344,9 @@
         "height": 1
     },
     {
-        "id": "968b36e5e6362b30",
+        "id": "55f79d5ae5c93465",
         "type": "ui_spacer",
-        "z": "868850c89ef71e74",
+        "z": "ccf126f79d5fc349",
         "name": "spacer",
         "group": "3954c505f17f374f",
         "order": 5,
@@ -367,9 +354,9 @@
         "height": 1
     },
     {
-        "id": "2d82f015eef3800e",
+        "id": "fabbf6bf4de2d125",
         "type": "ui_text",
-        "z": "868850c89ef71e74",
+        "z": "ccf126f79d5fc349",
         "group": "685da82a662e137c",
         "order": 1,
         "width": 12,
@@ -388,9 +375,9 @@
         "wires": []
     },
     {
-        "id": "e6f10e54f08f9a73",
+        "id": "31feaf4fa512a43f",
         "type": "inject",
-        "z": "868850c89ef71e74",
+        "z": "ccf126f79d5fc349",
         "name": "",
         "props": [
             {
@@ -406,20 +393,20 @@
         "once": true,
         "onceDelay": "0.5",
         "topic": "",
-        "payload": "WorldExplorer — China 🇨🇳",
+        "payload": "WorldExplorer — China",
         "payloadType": "str",
-        "x": 180,
+        "x": 240,
         "y": 80,
         "wires": [
             [
-                "2d82f015eef3800e"
+                "fabbf6bf4de2d125"
             ]
         ]
     },
     {
-        "id": "7bf6752e68a63e3a",
+        "id": "09775b386ccecce9",
         "type": "ui_text",
-        "z": "868850c89ef71e74",
+        "z": "ccf126f79d5fc349",
         "group": "685da82a662e137c",
         "order": 2,
         "width": 12,
@@ -438,9 +425,9 @@
         "wires": []
     },
     {
-        "id": "5a7491e64f29e517",
+        "id": "54fd1d054b528986",
         "type": "inject",
-        "z": "868850c89ef71e74",
+        "z": "ccf126f79d5fc349",
         "name": "",
         "props": [
             {
@@ -462,14 +449,14 @@
         "y": 260,
         "wires": [
             [
-                "7bf6752e68a63e3a"
+                "09775b386ccecce9"
             ]
         ]
     },
     {
-        "id": "401f8c7c74ec6d9e",
+        "id": "e1e3f0ccd59f1752",
         "type": "ui_dropdown",
-        "z": "868850c89ef71e74",
+        "z": "ccf126f79d5fc349",
         "name": "",
         "label": "Budget",
         "tooltip": "",
@@ -505,14 +492,14 @@
         "y": 380,
         "wires": [
             [
-                "373226bcc5059253"
+                "56e734873c0ed191"
             ]
         ]
     },
     {
-        "id": "e9c37d0b9096863a",
+        "id": "3ca8846d7bec4ef5",
         "type": "ui_dropdown",
-        "z": "868850c89ef71e74",
+        "z": "ccf126f79d5fc349",
         "name": "",
         "label": "Travel Month",
         "tooltip": "",
@@ -593,14 +580,14 @@
         "y": 360,
         "wires": [
             [
-                "373226bcc5059253"
+                "56e734873c0ed191"
             ]
         ]
     },
     {
-        "id": "f0a3c86fdfcf1924",
+        "id": "40d1721302c3b60b",
         "type": "ui_dropdown",
-        "z": "868850c89ef71e74",
+        "z": "ccf126f79d5fc349",
         "name": "",
         "label": "Interests",
         "tooltip": "",
@@ -661,14 +648,14 @@
         "y": 340,
         "wires": [
             [
-                "373226bcc5059253"
+                "56e734873c0ed191"
             ]
         ]
     },
     {
-        "id": "travelling_with_node",
+        "id": "9ce4ba13d00c1c9c",
         "type": "ui_dropdown",
-        "z": "868850c89ef71e74",
+        "z": "ccf126f79d5fc349",
         "name": "",
         "label": "Travelling With",
         "tooltip": "",
@@ -709,14 +696,14 @@
         "y": 320,
         "wires": [
             [
-                "373226bcc5059253"
+                "56e734873c0ed191"
             ]
         ]
     },
     {
-        "id": "find_btn_node",
+        "id": "3fdee0e6d040ee57",
         "type": "ui_button",
-        "z": "868850c89ef71e74",
+        "z": "ccf126f79d5fc349",
         "name": "",
         "group": "0c5ce5f5a8e21c34",
         "order": 5,
@@ -737,14 +724,14 @@
         "y": 300,
         "wires": [
             [
-                "373226bcc5059253"
+                "56e734873c0ed191"
             ]
         ]
     },
     {
-        "id": "373226bcc5059253",
+        "id": "56e734873c0ed191",
         "type": "function",
-        "z": "868850c89ef71e74",
+        "z": "ccf126f79d5fc349",
         "name": "build profile",
         "func": "if (msg.topic === 'budget') {\n    flow.set('budget', msg.payload);\n}\nif (msg.topic === 'travel_month') {\n    flow.set('travel_month', msg.payload);\n}\nif (msg.topic === 'interests') {\n    flow.set('interests', msg.payload);\n}\nif (msg.topic === 'company') {\n    flow.set('company', msg.payload);\n    node.warn('company set to: ' + msg.payload);\n}\n\nif (msg.topic === 'submit') {\n    let profile = {\n        budget:        flow.get('budget')        || 'mid_range',\n        travel_months: [flow.get('travel_month') || 'june'],\n        days:          14,\n        interests:     [flow.get('interests')    || 'culture_history'],\n        company:       flow.get('company')       || 'solo',\n        mobility:      'public_transport'\n    };\n    node.warn('profile built: ' + JSON.stringify(profile));\n    msg.payload = JSON.stringify(profile, null, 2);\n    return msg;\n}\n\nreturn null;",
         "outputs": 1,
@@ -757,15 +744,15 @@
         "y": 720,
         "wires": [
             [
-                "write_file_node",
-                "348914f92edae3bb"
+                "24a9748518a8de97",
+                "6085a4b371376b79"
             ]
         ]
     },
     {
-        "id": "write_file_node",
+        "id": "24a9748518a8de97",
         "type": "file",
-        "z": "868850c89ef71e74",
+        "z": "ccf126f79d5fc349",
         "name": "",
         "filename": "D:\\Scripting_Project\\WorldExplorer_China-Scripting\\China\\data\\node_red_profile.json",
         "filenameType": "str",
@@ -777,14 +764,14 @@
         "y": 880,
         "wires": [
             [
-                "exec_node"
+                "71d0e27f01361c60"
             ]
         ]
     },
     {
-        "id": "exec_node",
+        "id": "71d0e27f01361c60",
         "type": "exec",
-        "z": "868850c89ef71e74",
+        "z": "ccf126f79d5fc349",
         "command": "python D:\\Scripting_Project\\WorldExplorer_China-Scripting\\China\\run_match.py",
         "addpay": "",
         "append": "",
@@ -797,16 +784,16 @@
         "y": 1060,
         "wires": [
             [
-                "642e3323d1773b61"
+                "cafbd6665795467a"
             ],
             [],
             []
         ]
     },
     {
-        "id": "642e3323d1773b61",
+        "id": "cafbd6665795467a",
         "type": "file in",
-        "z": "868850c89ef71e74",
+        "z": "ccf126f79d5fc349",
         "name": "",
         "filename": "D:\\Scripting_Project\\WorldExplorer_China-Scripting\\China\\data\\top5_destinations.csv",
         "filenameType": "str",
@@ -819,14 +806,14 @@
         "y": 1280,
         "wires": [
             [
-                "522b9829d6580dd9"
+                "94eda84368e5ae8c"
             ]
         ]
     },
     {
-        "id": "522b9829d6580dd9",
+        "id": "94eda84368e5ae8c",
         "type": "function",
-        "z": "868850c89ef71e74",
+        "z": "ccf126f79d5fc349",
         "name": "parse csv",
         "func": "function parseCSVLine(line) {\n    let result = [];\n    let current = '';\n    let inQuotes = false;\n    for (let i = 0; i < line.length; i++) {\n        if (line[i] === '\"') {\n            inQuotes = !inQuotes;\n        } else if (line[i] === ',' && !inQuotes) {\n            result.push(current.trim());\n            current = '';\n        } else {\n            current += line[i];\n        }\n    }\n    result.push(current.trim());\n    return result;\n}\n\nlet lines = msg.payload.trim().split('\\n');\nlet headers = parseCSVLine(lines[0]);\nlet rows = [];\nfor (let i = 1; i < lines.length; i++) {\n    if (lines[i].trim() === '') continue;\n    let values = parseCSVLine(lines[i]);\n    let row = {};\n    headers.forEach((h, idx) => {\n        row[h.trim()] = values[idx] ? values[idx].trim() : '';\n    });\n    rows.push(row);\n}\nmsg.payload = rows;\nreturn msg;",
         "outputs": 1,
@@ -839,15 +826,15 @@
         "y": 1460,
         "wires": [
             [
-                "6e72575df35b6008",
-                "be9f54de9694fd63"
+                "33af4485b860193c",
+                "e61f885c572fa701"
             ]
         ]
     },
     {
-        "id": "6e72575df35b6008",
+        "id": "33af4485b860193c",
         "type": "function",
-        "z": "868850c89ef71e74",
+        "z": "ccf126f79d5fc349",
         "name": "chart data",
         "func": "let rows = msg.payload;\nlet labels = rows.map(r => r.region);\nlet scores = rows.map(r => parseFloat(r.score));\nmsg.payload = [{\n    series: ['Match Score'],\n    data:   [scores],\n    labels: labels\n}];\nreturn msg;",
         "outputs": 1,
@@ -860,14 +847,14 @@
         "y": 1460,
         "wires": [
             [
-                "e67110e1e88f3625"
+                "2cb319daa0613593"
             ]
         ]
     },
     {
-        "id": "e67110e1e88f3625",
+        "id": "2cb319daa0613593",
         "type": "ui_chart",
-        "z": "868850c89ef71e74",
+        "z": "ccf126f79d5fc349",
         "name": "",
         "group": "10c04f1d4b4f9927",
         "order": 1,
@@ -909,9 +896,9 @@
         ]
     },
     {
-        "id": "be9f54de9694fd63",
+        "id": "e61f885c572fa701",
         "type": "function",
-        "z": "868850c89ef71e74",
+        "z": "ccf126f79d5fc349",
         "name": "build html",
         "func": "let rows = msg.payload;\n\nif (!rows || rows.length === 0) {\n    msg.payload = '<p style=\"padding:10px; color:#999;\">No data found. Click Find My Destinations.</p>';\n    return msg;\n}\n\nlet html = '<div style=\"font-family:Arial; padding:10px; overflow-x:auto;\"><table style=\"width:100%; border-collapse:collapse; min-width:400px;\"><thead><tr style=\"background:#1a73e8; color:white;\"><th style=\"padding:10px; text-align:left;\">#</th><th style=\"padding:10px; text-align:left;\">Region</th><th style=\"padding:10px; text-align:left;\">Score</th><th style=\"padding:10px; text-align:left;\">Cost/Night</th><th style=\"padding:10px; text-align:left;\">Airport</th><th style=\"padding:10px; text-align:left;\">Why visit?</th></tr></thead><tbody>';\n\nrows.forEach((row, i) => {\n    let bg = i % 2 === 0 ? '#f9f9f9' : 'white';\n    let score = parseFloat(row.score) || 0;\n    let scoreColor = score >= 80 ? '#27ae60' : score >= 60 ? '#f39c12' : '#e74c3c';\n    html += '<tr style=\"background:' + bg + ';\">';\n    html += '<td style=\"padding:10px;\">' + (i+1) + '</td>';\n    html += '<td style=\"padding:10px; font-weight:bold;\">' + (row.region || '') + '</td>';\n    html += '<td style=\"padding:10px; font-weight:bold; color:' + scoreColor + ';\">' + (row.score || '') + '/100</td>';\n    html += '<td style=\"padding:10px;\">\\u20ac' + (row.avg_cost_night || '') + '</td>';\n    html += '<td style=\"padding:10px;\">' + (row.airport || '') + ' (' + (row.airport_km || '') + 'km)</td>';\n    html += '<td style=\"padding:10px; color:#555; font-size:12px; max-width:200px;\">' + (row.motivation || '') + '</td>';\n    html += '</tr>';\n});\n\nhtml += '</tbody></table></div>';\n\nmsg.payload = html;\nreturn msg;",
         "outputs": 1,
@@ -924,14 +911,14 @@
         "y": 1560,
         "wires": [
             [
-                "c12db1cd7c4b1851"
+                "26aa7b08111505d0"
             ]
         ]
     },
     {
-        "id": "c12db1cd7c4b1851",
+        "id": "26aa7b08111505d0",
         "type": "ui_template",
-        "z": "868850c89ef71e74",
+        "z": "ccf126f79d5fc349",
         "group": "3954c505f17f374f",
         "name": "top 5 table",
         "order": 6,
@@ -950,9 +937,9 @@
         ]
     },
     {
-        "id": "698ef9fd499caed5",
+        "id": "75a897ea3c0fdd0c",
         "type": "debug",
-        "z": "868850c89ef71e74",
+        "z": "ccf126f79d5fc349",
         "name": "debug 1",
         "active": true,
         "tosidebar": true,
@@ -967,9 +954,9 @@
         "wires": []
     },
     {
-        "id": "348914f92edae3bb",
+        "id": "6085a4b371376b79",
         "type": "debug",
-        "z": "868850c89ef71e74",
+        "z": "ccf126f79d5fc349",
         "name": "debug 2",
         "active": true,
         "tosidebar": true,
@@ -983,7 +970,459 @@
         "wires": []
     },
     {
-        "id": "98defe33f07f23f2",
+        "id": "7edab06d6315fc85",
+        "type": "ui_dropdown",
+        "z": "ccf126f79d5fc349",
+        "name": "",
+        "label": "Select Region",
+        "tooltip": "",
+        "place": "Select a region",
+        "group": "f5cadf5d0537ab33",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "multiple": false,
+        "options": [
+            {
+                "label": "Beijing",
+                "value": "beijing",
+                "type": "str"
+            },
+            {
+                "label": "Shanghai",
+                "value": "shanghai",
+                "type": "str"
+            },
+            {
+                "label": "Yunnan",
+                "value": "yunnan",
+                "type": "str"
+            },
+            {
+                "label": "Sichuan",
+                "value": "sichuan",
+                "type": "str"
+            },
+            {
+                "label": "Guilin",
+                "value": "guilin",
+                "type": "str"
+            },
+            {
+                "label": "Hainan",
+                "value": "hainan",
+                "type": "str"
+            },
+            {
+                "label": "Xian",
+                "value": "xian",
+                "type": "str"
+            },
+            {
+                "label": "Tibet",
+                "value": "tibet",
+                "type": "str"
+            },
+            {
+                "label": "Zhangjiajie",
+                "value": "zhangjiajie",
+                "type": "str"
+            },
+            {
+                "label": "Hangzhou",
+                "value": "hangzhou",
+                "type": "str"
+            }
+        ],
+        "payload": "",
+        "topic": "region",
+        "topicType": "str",
+        "className": "",
+        "x": 1760,
+        "y": 1720,
+        "wires": [
+            [
+                "0cb13f195d544b5e"
+            ]
+        ]
+    },
+    {
+        "id": "0cb13f195d544b5e",
+        "type": "function",
+        "z": "ccf126f79d5fc349",
+        "name": "load seasonal image",
+        "func": "let region = msg.payload;\nlet path = 'D:\\\\Scripting_Project\\\\WorldExplorer_China-Scripting\\\\China\\\\data\\\\seasonal_' + region + '.png';\nmsg.filename = path;\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 2020,
+        "y": 1720,
+        "wires": [
+            [
+                "ad340f19d8622ffa"
+            ]
+        ]
+    },
+    {
+        "id": "ad340f19d8622ffa",
+        "type": "file in",
+        "z": "ccf126f79d5fc349",
+        "name": "",
+        "filename": "filename",
+        "filenameType": "msg",
+        "format": "",
+        "chunk": false,
+        "sendError": false,
+        "encoding": "none",
+        "allProps": false,
+        "x": 2260,
+        "y": 1720,
+        "wires": [
+            [
+                "2db725cb406f1881"
+            ]
+        ]
+    },
+    {
+        "id": "2db725cb406f1881",
+        "type": "function",
+        "z": "ccf126f79d5fc349",
+        "name": "image to html",
+        "func": "let b64 = msg.payload.toString('base64');\nlet html = '<div style=\"text-align:center; padding:10px;\"><img src=\"data:image/png;base64,' + b64 + '\" style=\"max-width:100%; border-radius:8px;\"/></div>';\nmsg.payload = html;\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 2480,
+        "y": 1720,
+        "wires": [
+            [
+                "2cbc0bb781fd151f"
+            ]
+        ]
+    },
+    {
+        "id": "2cbc0bb781fd151f",
+        "type": "ui_template",
+        "z": "ccf126f79d5fc349",
+        "group": "f5cadf5d0537ab33",
+        "name": "seasonal chart",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "format": "<div ng-bind-html=\"msg.payload\"></div>",
+        "storeOutMessages": true,
+        "fwdInMessages": true,
+        "resendOnRefresh": true,
+        "templateScope": "local",
+        "className": "",
+        "x": 2700,
+        "y": 1720,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "5632e0cb16497232",
+        "type": "inject",
+        "z": "ccf126f79d5fc349",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": "2",
+        "topic": "",
+        "payload": "",
+        "payloadType": "str",
+        "x": 1650,
+        "y": 1200,
+        "wires": [
+            [
+                "d44cd1c57ae94852"
+            ]
+        ]
+    },
+    {
+        "id": "05922adc2998e1eb",
+        "type": "inject",
+        "z": "ccf126f79d5fc349",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": "2.5",
+        "topic": "",
+        "payload": "",
+        "payloadType": "str",
+        "x": 1650,
+        "y": 1340,
+        "wires": [
+            [
+                "6d93255a38e1fb07"
+            ]
+        ]
+    },
+    {
+        "id": "6ce20a5cbe689374",
+        "type": "inject",
+        "z": "ccf126f79d5fc349",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": "3",
+        "topic": "",
+        "payload": "",
+        "payloadType": "str",
+        "x": 1650,
+        "y": 1460,
+        "wires": [
+            [
+                "443af1f144290856"
+            ]
+        ]
+    },
+    {
+        "id": "d44cd1c57ae94852",
+        "type": "file in",
+        "z": "ccf126f79d5fc349",
+        "name": "",
+        "filename": "D:\\Scripting_Project\\WorldExplorer_China-Scripting\\China\\data\\dashboard_stats.csv",
+        "filenameType": "str",
+        "format": "utf8",
+        "chunk": false,
+        "sendError": false,
+        "encoding": "none",
+        "allProps": false,
+        "x": 2070,
+        "y": 1200,
+        "wires": [
+            [
+                "23adaef7c8296f34"
+            ]
+        ]
+    },
+    {
+        "id": "23adaef7c8296f34",
+        "type": "function",
+        "z": "ccf126f79d5fc349",
+        "name": "stats to chart",
+        "func": "let lines = msg.payload.trim().split('\\n');\nlet headers = lines[0].split(',');\nlet rows = [];\nfor (let i = 1; i < lines.length; i++) {\n    if (lines[i].trim() === '') continue;\n    let vals = lines[i].split(',');\n    let row = {};\n    headers.forEach((h, idx) => { row[h.trim()] = vals[idx] ? vals[idx].trim() : ''; });\n    rows.push(row);\n}\nlet labels = rows.map(r => r.region);\nlet counts = rows.map(r => parseInt(r.attraction_count) || 0);\nlet costs  = rows.map(r => parseInt(r.avg_cost_night) || 0);\nmsg.payload = [{\n    series: ['Attractions', 'Avg Cost/Night (€)'],\n    data:   [counts, costs],\n    labels: labels\n}];\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 2510,
+        "y": 1200,
+        "wires": [
+            [
+                "3e70ea48b514e4ca"
+            ]
+        ]
+    },
+    {
+        "id": "3e70ea48b514e4ca",
+        "type": "ui_chart",
+        "z": "ccf126f79d5fc349",
+        "name": "",
+        "group": "b906591265540456",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "label": "Attractions per Region",
+        "chartType": "bar",
+        "legend": "false",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "0",
+        "ymax": "50",
+        "removeOlder": 1,
+        "removeOlderPoints": "",
+        "removeOlderUnit": "3600",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#ff7f0e",
+            "#2ca02c",
+            "#d62728",
+            "#9467bd",
+            "#8c564b",
+            "#e377c2",
+            "#7f7f7f",
+            "#bcbd22"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 2740,
+        "y": 1200,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "6d93255a38e1fb07",
+        "type": "file in",
+        "z": "ccf126f79d5fc349",
+        "name": "",
+        "filename": "D:\\Scripting_Project\\WorldExplorer_China-Scripting\\China\\data\\dashboard_mustsees.csv",
+        "filenameType": "str",
+        "format": "utf8",
+        "chunk": false,
+        "sendError": false,
+        "encoding": "none",
+        "allProps": false,
+        "x": 2070,
+        "y": 1340,
+        "wires": [
+            [
+                "fa25484a07572e75"
+            ]
+        ]
+    },
+    {
+        "id": "fa25484a07572e75",
+        "type": "function",
+        "z": "ccf126f79d5fc349",
+        "name": "mustsees to html",
+        "func": "let lines = msg.payload.trim().split('\\n');\nlet headers = lines[0].split(',');\nlet rows = [];\nfor (let i = 1; i < lines.length; i++) {\n    if (lines[i].trim() === '') continue;\n    let vals = lines[i].split(',');\n    let row = {};\n    headers.forEach((h, idx) => { row[h.trim()] = vals[idx] ? vals[idx].trim() : ''; });\n    rows.push(row);\n}\nlet html = '<div style=\"font-family:Arial; padding:10px; overflow-x:auto;\"><table style=\"width:100%; border-collapse:collapse;\">';\nhtml += '<thead><tr style=\"background:#1a73e8; color:white;\"><th style=\"padding:8px;\">Region</th><th style=\"padding:8px;\">Name</th><th style=\"padding:8px;\">Type</th></tr></thead><tbody>';\nrows.forEach((row, i) => {\n    let bg = i % 2 === 0 ? '#f9f9f9' : 'white';\n    let typeColor = row.type === 'must-see' ? '#e74c3c' : '#27ae60';\n    html += '<tr style=\"background:' + bg + ';\">';\n    html += '<td style=\"padding:8px;\">' + (row.region || '') + '</td>';\n    html += '<td style=\"padding:8px; font-weight:bold;\">' + (row.name || '') + '</td>';\n    html += '<td style=\"padding:8px; color:' + typeColor + '; font-weight:bold;\">' + (row.type || '') + '</td>';\n    html += '</tr>';\n});\nhtml += '</tbody></table></div>';\nmsg.payload = html;\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 2530,
+        "y": 1340,
+        "wires": [
+            [
+                "15fad977a2ab7674"
+            ]
+        ]
+    },
+    {
+        "id": "15fad977a2ab7674",
+        "type": "ui_template",
+        "z": "ccf126f79d5fc349",
+        "group": "d3b0fc45f79e3a7a",
+        "name": "mustsees table",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "format": "<div ng-bind-html=\"msg.payload\"></div>",
+        "storeOutMessages": true,
+        "fwdInMessages": true,
+        "resendOnRefresh": true,
+        "templateScope": "local",
+        "className": "",
+        "x": 2760,
+        "y": 1340,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "443af1f144290856",
+        "type": "file in",
+        "z": "ccf126f79d5fc349",
+        "name": "",
+        "filename": "D:\\Scripting_Project\\WorldExplorer_China-Scripting\\China\\data\\dashboard_budget.csv",
+        "filenameType": "str",
+        "format": "utf8",
+        "chunk": false,
+        "sendError": false,
+        "encoding": "none",
+        "allProps": false,
+        "x": 2080,
+        "y": 1460,
+        "wires": [
+            [
+                "a12f6d67bf1d3d7e"
+            ]
+        ]
+    },
+    {
+        "id": "a12f6d67bf1d3d7e",
+        "type": "function",
+        "z": "ccf126f79d5fc349",
+        "name": "budget to html",
+        "func": "let lines = msg.payload.trim().split('\\n');\nlet headers = lines[0].split(',');\nlet rows = [];\nfor (let i = 1; i < lines.length; i++) {\n    if (lines[i].trim() === '') continue;\n    let vals = lines[i].split(',');\n    let row = {};\n    headers.forEach((h, idx) => { row[h.trim()] = vals[idx] ? vals[idx].trim() : ''; });\n    rows.push(row);\n}\nlet html = '<div style=\"font-family:Arial; padding:10px; overflow-x:auto;\"><table style=\"width:100%; border-collapse:collapse;\">';\nhtml += '<thead><tr style=\"background:#1a73e8; color:white;\"><th style=\"padding:8px;\">Region</th><th style=\"padding:8px;\">Budget</th><th style=\"padding:8px;\">Avg/Night</th><th style=\"padding:8px;\">Cheap Meal</th><th style=\"padding:8px;\">Mid-Range Meal</th></tr></thead><tbody>';\nrows.forEach((row, i) => {\n    let bg = i % 2 === 0 ? '#f9f9f9' : 'white';\n    let bc = row.budget_level === 'backpacker' ? '#27ae60' : row.budget_level === 'mid_range' ? '#f39c12' : '#e74c3c';\n    html += '<tr style=\"background:' + bg + ';\">';\n    html += '<td style=\"padding:8px; font-weight:bold;\">' + (row.region || '') + '</td>';\n    html += '<td style=\"padding:8px; color:' + bc + '; font-weight:bold;\">' + (row.budget_level || '') + '</td>';\n    html += '<td style=\"padding:8px;\">€' + (row.avg_cost_night || '') + '</td>';\n    html += '<td style=\"padding:8px;\">' + (row.cheap_meal || 'n/a') + '</td>';\n    html += '<td style=\"padding:8px;\">' + (row.midrange_meal || 'n/a') + '</td>';\n    html += '</tr>';\n});\nhtml += '</tbody></table></div>';\nmsg.payload = html;\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 2520,
+        "y": 1460,
+        "wires": [
+            [
+                "d4f9fa78a1793b9d"
+            ]
+        ]
+    },
+    {
+        "id": "d4f9fa78a1793b9d",
+        "type": "ui_template",
+        "z": "ccf126f79d5fc349",
+        "group": "e7c0c1492ea95fa9",
+        "name": "budget table",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "format": "<div ng-bind-html=\"msg.payload\"></div>",
+        "storeOutMessages": true,
+        "fwdInMessages": true,
+        "resendOnRefresh": true,
+        "templateScope": "local",
+        "className": "",
+        "x": 2730,
+        "y": 1460,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "59880a31499a5708",
         "type": "global-config",
         "env": [],
         "modules": {

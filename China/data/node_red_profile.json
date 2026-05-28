@@ -1,11 +1,11 @@
 {
-  "budget": "luxury",
+  "budget": "mid_range",
   "travel_months": [
-    "august"
+    "september"
   ],
   "days": 14,
   "interests": [
-    "gastronomy"
+    "culture_history"
   ],
   "company": "friend_group",
   "mobility": "public_transport"

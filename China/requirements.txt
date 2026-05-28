@@ -7,6 +7,5 @@ folium
 groq
 google-genai
 python-dotenv
-anthropic
 ipykernel
 ipywidgets
